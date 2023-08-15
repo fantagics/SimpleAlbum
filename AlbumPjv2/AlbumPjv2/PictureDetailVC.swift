@@ -237,7 +237,7 @@ extension PictureDetailVC{
             imageView.leadingAnchor.constraint(equalTo: zoomableScrollView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: zoomableScrollView.trailingAnchor),
             imageView.widthAnchor.constraint(equalTo: zoomableScrollView.widthAnchor),
-            imageView.heightAnchor.constraint(equalTo: zoomableScrollView.heightAnchor),
+            imageView.heightAnchor.constraint(equalTo: zoomableScrollView.heightAnchor)
         ])
     }
 }
