@@ -185,7 +185,7 @@ extension PictureListVC{
             popoverController.permittedArrowDirections = []
             self.popoverController = popoverController
         }
-        present(activityVC,animated: true)
+        present(activityVC, animated: true)
     }
     @objc private func didTapOrderButton(_ sender: UIBarButtonItem){
         orderItem.title = lastestOrder ? "과거순" : "최신순"

@@ -98,6 +98,13 @@ extension PictureDetailVC{
     private func updateFavorite(){
         favoriteItem.tintColor = asset.isFavorite ? .red : .black
     }
+//    private func loadImage()-> UIImage{
+//        var img = UIImage()
+//        imageManager.requestImage(for: asset, targetSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight), contentMode: .aspectFill, options: nil, resultHandler: {image, _ in
+//            img = image ?? UIImage()
+//        })
+//        return img
+//    }
     private func loadImage(){
         imageManager.requestImage(for: asset, targetSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight), contentMode: .aspectFill, options: nil, resultHandler: {image, _ in
             self.imageView.image = image
@@ -109,15 +116,48 @@ extension PictureDetailVC{
     }
     
     @objc private func didTapShareItem(_ sender: UIBarButtonItem){
-        
+        guard let img = imageView.image else{
+            print("Share Image Fail..")
+            return
+        }
+        let activityVC = UIActivityViewController(activityItems: [img], applicationActivities: nil)
+        activityVC.completionWithItemsHandler = {(activity, success, items, error) in
+            if success{
+                print("Share Success")
+            }else{
+                print("Share Cancel")
+            }
+            if let error = error{
+                print(error.localizedDescription)
+            }
+        }
+        if let popoverController = activityVC.popoverPresentationController{
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = CGRect(x: self.view.bounds.minX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+            self.popoverController = popoverController
+        }
+        present(activityVC, animated: true)
     }
     
     @objc private func didTapFavoriteItem(_ sender: UIBarButtonItem){
-        
+        PHPhotoLibrary.shared().performChanges({
+            let req = PHAssetChangeRequest(for: self.asset)
+            req.isFavorite = !self.asset.isFavorite
+        }){ (success, error) in
+            if success { print("Favorite Changed: \(self.asset.isFavorite)") }
+        }
+        updateFavorite()
     }
     
     @objc private func didTapTrashItem(_ sender: UIBarButtonItem){
-        
+        PHPhotoLibrary.shared().performChanges({
+            PHAssetChangeRequest.deleteAssets([self.asset!] as NSArray)
+        }, completionHandler: {success, error in
+            if success {
+                self.deletedAsset = true
+            }
+        })
     }
 }
 
@@ -196,6 +236,8 @@ extension PictureDetailVC{
             imageView.bottomAnchor.constraint(equalTo: zoomableScrollView.bottomAnchor),
             imageView.leadingAnchor.constraint(equalTo: zoomableScrollView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: zoomableScrollView.trailingAnchor),
+            imageView.widthAnchor.constraint(equalTo: zoomableScrollView.widthAnchor),
+            imageView.heightAnchor.constraint(equalTo: zoomableScrollView.heightAnchor),
         ])
     }
 }
