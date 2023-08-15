@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B6848D832A8B71CE00F53B6E /* ETActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6848D822A8B71CE00F53B6E /* ETActivityViewController.swift */; };
+		B6848D852A8BBED800F53B6E /* TitleViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6848D842A8BBED800F53B6E /* TitleViews.swift */; };
 		B6C863852A77FC6C00DF95DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C863842A77FC6C00DF95DB /* AppDelegate.swift */; };
 		B6C863872A77FC6C00DF95DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C863862A77FC6C00DF95DB /* SceneDelegate.swift */; };
 		B6C863892A77FC6C00DF95DB /* AlbumListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C863882A77FC6C00DF95DB /* AlbumListVC.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		B6848D822A8B71CE00F53B6E /* ETActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETActivityViewController.swift; sourceTree = "<group>"; };
+		B6848D842A8BBED800F53B6E /* TitleViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViews.swift; sourceTree = "<group>"; };
 		B6C863812A77FC6C00DF95DB /* AlbumPjv2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumPjv2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6C863842A77FC6C00DF95DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6C863862A77FC6C00DF95DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		B6C8639C2A77FF8100DF95DB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B6848D842A8BBED800F53B6E /* TitleViews.swift */,
 				B6C863B02A78EF7A00DF95DB /* LayoutOfCollection.swift */,
 				B6C863A22A784F7300DF95DB /* AlbumListCell.xib */,
 				B6C863A12A784F7300DF95DB /* AlbumListCell.swift */,
@@ -237,6 +240,7 @@
 				B6C863AE2A78EF0900DF95DB /* PhotosManager.swift in Sources */,
 				B6C863AA2A78517F00DF95DB /* PictureListVC.swift in Sources */,
 				B6848D832A8B71CE00F53B6E /* ETActivityViewController.swift in Sources */,
+				B6848D852A8BBED800F53B6E /* TitleViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
